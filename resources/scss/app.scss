@@ -1,0 +1,26 @@
+@import "./partials/bootstrap_loader.scss";
+
+main {
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+.jumbotron {
+    min-height: calc(100vh - 70px);
+}
+
+td a{
+    text-decoration: none;
+}
+
+tr th a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+.rotate_180{
+    transform: rotate(180deg);
+}
