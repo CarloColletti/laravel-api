@@ -49,6 +49,9 @@ Route::middleware('auth')
     ->name('Admin.')
     ->group(function () {
     // rotta resouce project 
+    Route::get('/shoe/trash', [ShoeController::class, 'trash'])->name('shoe.trash');
+    Route::put('/shoe/{Shoe}/restore', [ShoeController::class, 'restore'])->name('shoe.restore');
+    Route::delete('/shoe/force-delete', [ShoeController::class, 'forceDelete'])->name('shoe.forceDelete');
     Route::resource('Shoe', ShoeController::class);
 });
 

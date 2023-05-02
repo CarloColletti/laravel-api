@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('price', 6, 2); //999999,99
             $table->enum('type', ['elegant', 'sportive', 'casual']);
             $table->text('img')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

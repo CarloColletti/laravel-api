@@ -25,6 +25,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('Admin.Shoe.index') }}">{{ __('Lista Scarpe') }}</a>
+                </li> Admin.shoe.trash
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('Admin.shoe.trash') }}">{{ __('Cestino') }}</a>
                 </li>
             </ul>
           @endauth

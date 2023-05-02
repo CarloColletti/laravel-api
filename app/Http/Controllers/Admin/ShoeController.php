@@ -185,4 +185,34 @@ class ShoeController extends Controller
         
         return $validate;
     }
+
+    public function trash(){
+
+        $shoes = Shoe::onlyTrashed()->orderBy('deleted_at', 'DESC')->paginate(15)->withQueryString();
+        
+
+        return view('Admin.shoe.trash', compact('shoes'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Shoe  $shoe
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete(Int $id)
+    {   
+        $shoe = Shoe::where('id' , $id)->onlyTrashed()->first();
+
+        dd($shoe);
+
+        $id_shoe = $shoe->name;
+        $shoe->forceDelete();
+
+
+        // redirect con route alla all'index ma con la variabile flash per successo  cancellazione
+        return to_route('Admin.shoe.trash')
+            ->with('message_type',"danger" )
+            ->with('message_content',"La scarpa $id_shoe è stata eliminata definitivamnte" );
+    }
 }
